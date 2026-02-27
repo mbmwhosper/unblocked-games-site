@@ -1,36 +1,37 @@
-# PlayPortal
+# PlayPortal (Self-hosted mode)
 
-JSON-driven unblocked game hub.
+This site is now configured for **self-hosted games only**.
 
-## Data sources (GitHub)
+## How to add games
 
-This build currently aggregates game metadata from:
+1. Put game files in:
+- `assets/allgames/<slug>/...`
 
-- `https://raw.githubusercontent.com/thedogecraft/lunaar.org/main/public/json/games.json`
-- `https://raw.githubusercontent.com/swarmintelli/Unblocked-Games-CDN/main/games.json`
+2. Add an entry to:
+- `games.local.json`
 
-Merge behavior:
-- Adds games that are missing from the existing catalog
-- De-duplicates by normalized game name
-- If duplicate exists in multiple sources, keeps the higher-priority source entry (used as "newer/better" preference)
+Example entry:
 
-## Features
-
-- Search
-- Category filters
-- Featured games
-- Dedicated pages at `/g/<slug>`
-- Window-only game player mode
+```json
+{
+  "slug": "my-game",
+  "name": "My Game",
+  "category": "Arcade",
+  "description": "My self-hosted game build.",
+  "thumbnail": "/assets/allgames/my-game/thumb.png",
+  "url": "/assets/allgames/my-game/index.html",
+  "featured": true
+}
+```
 
 ## Local run
 
 ```bash
 cd unblocked-games-site
 python3 -m http.server 8080
-# open http://localhost:8080
 ```
 
 ## Deploy
 
-- Connected GitHub repo: `mbmwhosper/unblocked-games-site`
+- Repo: `mbmwhosper/unblocked-games-site`
 - Netlify auto-deploys from `main`

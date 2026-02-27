@@ -1,0 +1,11 @@
+[
+  {
+    "slug": "demo-local",
+    "name": "Demo Local Game",
+    "category": "Local",
+    "description": "Replace with your self-hosted game build.",
+    "thumbnail": "",
+    "url": "/assets/allgames/demo-local/index.html",
+    "featured": true
+  }
+]
