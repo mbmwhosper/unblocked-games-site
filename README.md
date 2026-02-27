@@ -1,8 +1,12 @@
-# PlayPortal (Unblocked Game Hub Scaffold)
+# PlayPortal
 
-A lightweight static site that lists browser games and launches them in an embedded player.
+Static unblocked game hub with:
+- Search
+- Category filters
+- Featured games
+- Dedicated pages at `/g/<slug>`
 
-## Run locally
+## Local run
 
 ```bash
 cd unblocked-games-site
@@ -10,47 +14,30 @@ python3 -m http.server 8080
 # open http://localhost:8080
 ```
 
-## Customize game list
+## Game catalog
 
-Edit `script.js` and update the `games` array:
+Edit `games-data.js` entries:
 
 ```js
-{
-  name: "Game Name",
-  category: "Arcade",
-  description: "One-line description",
-  url: "https://example.com/game"
-}
+{ slug, name, category, featured, description, url }
 ```
 
-## Deploy options
+## Deploy (recommended: Netlify + GitHub auto-publish)
 
-- GitHub Pages / Netlify / Vercel (static hosting)
-- Your own VPS/Nginx host
+1. Push this repo to GitHub (already done).
+2. In Netlify: **Add new site → Import from Git**.
+3. Select repo: `mbmwhosper/unblocked-games-site`.
+4. Build command: *(blank)*
+5. Publish directory: `.`
+6. Deploy.
 
-## FreeDNS (afraid.org) setup
+`_redirects` handles pretty game routes:
+- `/g/* -> /g/index.html (200)`
 
-1. Create/login at https://freedns.afraid.org/
-2. Add a subdomain in **Subdomains**.
-3. Choose one:
-   - **A record** → point to your server IP (best if self-hosting).
-   - **CNAME** → point to a hosted site domain.
-   - **URL redirect** → forwards users, but keeps fewer DNS controls.
-4. If using dynamic IP, set up **Dynamic DNS** update URL from your FreeDNS panel.
+## Domain setup with FreeDNS
 
-### Example dynamic updater (Linux cron)
+If CNAME is blocked on your FreeDNS shared domain, use Netlify A records:
+- `75.2.60.5`
+- `99.83.190.102`
 
-```bash
-curl -fsS "https://freedns.afraid.org/dynamic/update.php?<YOUR_TOKEN>"
-```
-
-Add to crontab (every 10 min):
-
-```cron
-*/10 * * * * /usr/bin/curl -fsS "https://freedns.afraid.org/dynamic/update.php?<YOUR_TOKEN>" >/dev/null 2>&1
-```
-
-## Notes
-
-- Some game hosts block iframe embedding via security headers. Use "Open in New Tab" for those.
-- Only include games/content you are authorized to host or link.
+Then add custom domain in Netlify: `mbm.joe.dj`.

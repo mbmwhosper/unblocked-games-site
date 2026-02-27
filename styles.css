@@ -27,7 +27,8 @@ body {
   align-items: center;
 }
 
-.brand { font-weight: 700; letter-spacing: 0.2px; }
+.brand { font-weight: 700; letter-spacing: 0.2px; color: var(--ink); text-decoration: none; }
+.back-link { color: var(--muted); text-decoration: none; margin-left: auto; }
 .topbar input {
   flex: 1;
   max-width: 420px;
@@ -41,6 +42,7 @@ body {
 .container { max-width: 1100px; margin: 0 auto; padding: 20px 16px 48px; }
 .hero h1 { margin-bottom: 4px; }
 .hero p { margin-top: 0; color: var(--muted); }
+.muted { color: var(--muted); }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
 .chip {
@@ -50,12 +52,13 @@ body {
   color: var(--muted);
   cursor: pointer;
   user-select: none;
+  background: transparent;
 }
 .chip.active { border-color: var(--accent); color: #d8f7ff; }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 12px;
 }
 .card {
@@ -63,11 +66,19 @@ body {
   background: linear-gradient(180deg, #121a36, #10162f);
   border-radius: 14px;
   padding: 12px;
-  cursor: pointer;
 }
-.card:hover { border-color: var(--accent); }
 .card h3 { margin: 0 0 4px; font-size: 15px; }
-.card p { margin: 0; color: var(--muted); font-size: 12px; }
+.card p { margin: 0 0 10px; color: var(--muted); font-size: 12px; min-height: 32px; }
+.play-link {
+  display: inline-block;
+  border: 1px solid #2d3f7b;
+  background: #172249;
+  color: var(--ink);
+  border-radius: 10px;
+  padding: 8px 12px;
+  text-decoration: none;
+}
+.play-link:hover { border-color: var(--accent); }
 
 .player-wrap { margin-top: 24px; }
 .player-controls { display: flex; gap: 8px; margin: 10px 0; }

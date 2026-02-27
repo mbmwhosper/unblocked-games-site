@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayPortal — Game</title>
+  <meta name="description" content="Play a game on PlayPortal." />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">🎮 PlayPortal</a>
+    <a class="back-link" href="/">← Back to library</a>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="gameMeta">
+      <h1 id="gameName">Loading…</h1>
+      <p id="gameDescription" class="muted"></p>
+    </section>
+
+    <section class="player-wrap">
+      <div class="player-controls">
+        <button id="openNewTab" disabled>Open in New Tab</button>
+        <button id="fullscreenBtn" disabled>Fullscreen</button>
+      </div>
+      <iframe id="gameFrame" title="Game player" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+      <p class="note">If embed is blocked by source security headers, use “Open in New Tab”.</p>
+    </section>
+  </main>
+
+  <script src="/games-data.js"></script>
+  <script src="/g/game.js"></script>
+</body>
+</html>
