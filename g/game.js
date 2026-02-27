@@ -1,42 +1,65 @@
-const games = window.GAMES || [];
+const REMOTE_GAMES_JSON = "https://raw.githubusercontent.com/swarmintelli/Unblocked-Games-CDN/main/games.json";
 
 function getSlugFromUrl() {
   const pathParts = window.location.pathname.split("/").filter(Boolean);
-  // /g/<slug>
   if (pathParts[0] === "g" && pathParts[1]) return pathParts[1];
-
-  // fallback for /g/?slug=<slug>
   const params = new URLSearchParams(window.location.search);
   return params.get("slug") || "";
 }
 
-const slug = getSlugFromUrl();
-const game = games.find(g => g.slug === slug);
+function slugify(s = "") {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
 
+function extractSrc(iframeValue = "") {
+  const match = iframeValue.match(/src\s*=\s*"([^"]+)"/i);
+  return match ? match[1] : "";
+}
+
+function normalizeRemoteGame(item, idx) {
+  const name = item.game_name || item.name || `Game ${idx + 1}`;
+  const embedUrl = item.embed_url || extractSrc(item.iframe || "");
+  return {
+    slug: item.slug || slugify(name),
+    name,
+    category: item.category || "Games",
+    description: item.game_description || item.description || "Play in your browser.",
+    url: embedUrl
+  };
+}
+
+const slug = getSlugFromUrl();
 const gameName = document.getElementById("gameName");
 const gameDescription = document.getElementById("gameDescription");
 const frame = document.getElementById("gameFrame");
-const launchDirect = document.getElementById("launchDirect");
-const openNewTab = document.getElementById("openNewTab");
 const fullscreenBtn = document.getElementById("fullscreenBtn");
 
-if (!game) {
-  gameName.textContent = "Game not found";
-  gameDescription.textContent = "The requested game slug does not exist in catalog.";
-} else {
+async function init() {
+  let game = null;
+  try {
+    const res = await fetch(REMOTE_GAMES_JSON, { cache: "no-store" });
+    const data = await res.json();
+    const arr = Array.isArray(data) ? data : (Array.isArray(data.games) ? data.games : []);
+    const games = arr.map(normalizeRemoteGame).filter(g => g.url);
+    game = games.find(g => g.slug === slug);
+  } catch (e) {
+    gameName.textContent = "Game catalog unavailable";
+    gameDescription.textContent = "Could not load game list from GitHub.";
+    return;
+  }
+
+  if (!game) {
+    gameName.textContent = "Game not found";
+    gameDescription.textContent = "The requested game slug does not exist in catalog.";
+    return;
+  }
+
   document.title = `PlayPortal — ${game.name}`;
   gameName.textContent = game.name;
   gameDescription.textContent = `${game.category} • ${game.description}`;
-  frame.src = `/assets/mainstorage/${game.slug}.html`;
-  launchDirect.href = game.url;
-  launchDirect.removeAttribute("aria-disabled");
-  openNewTab.disabled = false;
+  frame.src = game.url;
   fullscreenBtn.disabled = false;
 }
-
-openNewTab.addEventListener("click", () => {
-  if (game) window.open(game.url, "_blank", "noopener,noreferrer");
-});
 
 fullscreenBtn.addEventListener("click", async () => {
   if (!document.fullscreenElement) {
@@ -45,3 +68,5 @@ fullscreenBtn.addEventListener("click", async () => {
     await document.exitFullscreen?.();
   }
 });
+
+init();

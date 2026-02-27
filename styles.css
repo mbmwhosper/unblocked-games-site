@@ -67,6 +67,14 @@ body {
   border-radius: 14px;
   padding: 12px;
 }
+.thumb {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  border: 1px solid #233266;
+}
 .card h3 { margin: 0 0 4px; font-size: 15px; }
 .card p { margin: 0 0 10px; color: var(--muted); font-size: 12px; min-height: 32px; }
 .play-link {
