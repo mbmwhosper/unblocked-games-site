@@ -20,10 +20,11 @@ Large binary files and repo size limits make GitHub/Netlify unreliable for this 
 ## Recommended deploy (VPS)
 
 1. Prepare a Linux VPS with Nginx.
-2. Copy site files:
+2. One-command manual deploy:
 
 ```bash
-rsync -avz --progress /home/c/.openclaw/workspace/unblocked-games-site/ user@YOUR_VPS:/var/www/skeezers/
+cd /home/c/.openclaw/workspace/unblocked-games-site
+VPS_USER=ubuntu VPS_HOST=YOUR_IP VPS_PATH=/var/www/skeezers ./deploy-vps.sh
 ```
 
 3. Nginx site config:
@@ -46,6 +47,20 @@ server {
 ```
 
 4. Enable HTTPS with Certbot.
+
+## Auto-deploy on every push (near real-time)
+
+A GitHub Actions workflow is included at:
+- `.github/workflows/deploy-vps.yml`
+
+Set these GitHub repo secrets:
+- `VPS_HOST` (e.g. `1.2.3.4`)
+- `VPS_USER` (e.g. `ubuntu`)
+- `VPS_PATH` (e.g. `/var/www/skeezers`)
+- `VPS_SSH_KEY` (private deploy key content)
+- `VPS_RELOAD_CMD` (optional, e.g. `sudo systemctl reload nginx`)
+
+After secrets are set, every push to `main` auto-syncs to VPS.
 
 ## Notes
 - In-window reliability is best when assets are served from your own domain.
