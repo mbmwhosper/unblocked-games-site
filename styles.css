@@ -1,0 +1,93 @@
+:root {
+  --bg: #0b1020;
+  --card: #141b34;
+  --ink: #ecf0ff;
+  --muted: #97a3d1;
+  --accent: #5ad1ff;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(11, 16, 32, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #24305d;
+  padding: 12px 16px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.brand { font-weight: 700; letter-spacing: 0.2px; }
+.topbar input {
+  flex: 1;
+  max-width: 420px;
+  background: #0f1530;
+  color: var(--ink);
+  border: 1px solid #2a396f;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 20px 16px 48px; }
+.hero h1 { margin-bottom: 4px; }
+.hero p { margin-top: 0; color: var(--muted); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.chip {
+  border: 1px solid #2a396f;
+  border-radius: 999px;
+  padding: 6px 12px;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+}
+.chip.active { border-color: var(--accent); color: #d8f7ff; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+.card {
+  border: 1px solid #233266;
+  background: linear-gradient(180deg, #121a36, #10162f);
+  border-radius: 14px;
+  padding: 12px;
+  cursor: pointer;
+}
+.card:hover { border-color: var(--accent); }
+.card h3 { margin: 0 0 4px; font-size: 15px; }
+.card p { margin: 0; color: var(--muted); font-size: 12px; }
+
+.player-wrap { margin-top: 24px; }
+.player-controls { display: flex; gap: 8px; margin: 10px 0; }
+button {
+  border: 1px solid #2d3f7b;
+  background: #172249;
+  color: var(--ink);
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+#gameFrame {
+  width: 100%;
+  height: 70vh;
+  border: 1px solid #2b3c72;
+  border-radius: 12px;
+  background: #0a0f22;
+}
+
+.note, .footer { color: var(--muted); font-size: 12px; }
+.footer { text-align: center; padding: 12px; border-top: 1px solid #1d2b57; }

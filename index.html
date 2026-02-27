@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayPortal — Games Hub</title>
+  <meta name="description" content="Fast, simple browser game hub." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🎮 PlayPortal</div>
+    <input id="search" type="search" placeholder="Search games..." aria-label="Search games" />
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Game Hub</h1>
+      <p>Pick a game and launch it in the embedded player.</p>
+    </section>
+
+    <section>
+      <h2>Categories</h2>
+      <div id="categories" class="chips"></div>
+    </section>
+
+    <section>
+      <h2>All Games</h2>
+      <div id="gameGrid" class="grid"></div>
+    </section>
+
+    <section class="player-wrap">
+      <h2 id="playerTitle">Player</h2>
+      <div class="player-controls">
+        <button id="openNewTab" disabled>Open in New Tab</button>
+        <button id="fullscreenBtn" disabled>Fullscreen</button>
+      </div>
+      <iframe id="gameFrame" title="Game player" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+      <p class="note">If a source blocks embedding (X-Frame-Options), use “Open in New Tab”.</p>
+    </section>
+  </main>
+
+  <footer class="footer">Built for local/self-hosted use.</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
