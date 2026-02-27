@@ -2,17 +2,17 @@
 
 JSON-driven unblocked game hub.
 
-## Data source
+## Data sources (GitHub)
 
-This build reads game metadata from:
+This build currently aggregates game metadata from:
 
-`https://raw.githubusercontent.com/swarmintelli/Unblocked-Games-CDN/main/games.json`
+- `https://raw.githubusercontent.com/thedogecraft/lunaar.org/main/public/json/games.json`
+- `https://raw.githubusercontent.com/swarmintelli/Unblocked-Games-CDN/main/games.json`
 
-It parses:
-- `game_name`
-- `game_image_icon`
-- `iframe` (extracts iframe `src`)
-- optional `category`, `description`, `slug`
+Merge behavior:
+- Adds games that are missing from the existing catalog
+- De-duplicates by normalized game name
+- If duplicate exists in multiple sources, keeps the higher-priority source entry (used as "newer/better" preference)
 
 ## Features
 
