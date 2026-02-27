@@ -27,7 +27,7 @@ if (!game) {
   document.title = `PlayPortal — ${game.name}`;
   gameName.textContent = game.name;
   gameDescription.textContent = `${game.category} • ${game.description}`;
-  frame.src = game.url;
+  frame.src = `/assets/mainstorage/${game.slug}.html`;
   launchDirect.href = game.url;
   launchDirect.removeAttribute("aria-disabled");
   openNewTab.disabled = false;

@@ -22,6 +22,14 @@ Edit `games-data.js` entries:
 { slug, name, category, featured, description, url }
 ```
 
+Then regenerate wrapper pages (Pizza-style architecture):
+
+```bash
+node tools/generate-wrappers.mjs
+```
+
+This writes one wrapper per game to `assets/mainstorage/<slug>.html`.
+
 ## Deploy (recommended: Netlify + GitHub auto-publish)
 
 1. Push this repo to GitHub (already done).
