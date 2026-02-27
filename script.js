@@ -1,21 +1,3 @@
-const JSON_SOURCES = [
-  {
-    name: "lunaar",
-    url: "https://raw.githubusercontent.com/thedogecraft/lunaar.org/main/public/json/games.json",
-    priority: 3
-  },
-  {
-    name: "swarmintelli",
-    url: "https://raw.githubusercontent.com/swarmintelli/Unblocked-Games-CDN/main/games.json",
-    priority: 2
-  },
-  {
-    name: "55gms",
-    url: "https://raw.githubusercontent.com/55gms/55GMS/main/static/assets/json/load/g.json",
-    priority: 1
-  }
-];
-
 const MONKEY_CONFIG_JS = "https://cdn.jsdelivr.net/gh/MonkeyGG2/monkeygg2.github.io@main/js/config.js";
 const MONKEY_BASE = "https://monkeygg2.github.io/games/";
 
@@ -29,18 +11,6 @@ const searchEl = document.getElementById("search");
 
 function slugify(s = "") {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-}
-
-function extractSrc(iframeValue = "") {
-  const m = iframeValue.match(/src\s*=\s*"([^"]+)"/i);
-  return m ? m[1] : "";
-}
-
-function isUsableHtml5Url(url = "") {
-  if (!/^https?:\/\//i.test(url)) return false;
-  if (/\.swf($|\?)/i.test(url)) return false;
-  if (/\bflash\b/i.test(url)) return false;
-  return true;
 }
 
 function loadScript(src) {
@@ -60,61 +30,28 @@ function fromMonkeyConfig() {
     .map(([name, meta], idx) => {
       const path = meta?.path || "";
       if (!path || path.startsWith("flash/")) return null;
+
+      const categories = Array.isArray(meta?.categories) && meta.categories.length
+        ? meta.categories
+        : ["Games"];
+
       return {
         slug: slugify(name),
         name,
-        category: (meta?.categories && meta.categories[0]) || "Games",
-        description: "HTML5",
+        category: categories[0],
+        featured: idx < 12,
+        description: `HTML5 • ${path}`,
         url: `${MONKEY_BASE}${path}`,
-        thumbnail: "",
-        featured: idx < 14,
-        source: "monkeygg2",
-        priority: 4
+        thumbnail: ""
       };
     })
-    .filter(Boolean);
-}
-
-function normalizeJsonItem(item, source, idx) {
-  const name = item.name || item.game_name || item.title || `Game ${idx + 1}`;
-  const url = item.url || item.game_url || item.embed_url || extractSrc(item.iframe || "");
-  const thumbnail = item.image || item.game_image_icon || item.thumbnail || "";
-  const category = item.category || "Games";
-
-  return {
-    slug: item.slug || item["game-id"] || slugify(name),
-    name,
-    category,
-    description: item.description || item.game_description || "HTML5",
-    url,
-    thumbnail,
-    featured: idx < 10,
-    source: source.name,
-    priority: source.priority
-  };
-}
-
-function dedupeMerge(rows) {
-  const byName = new Map();
-  for (const g of rows) {
-    if (!g?.name || !isUsableHtml5Url(g.url)) continue;
-    const key = slugify(g.name);
-    const cur = byName.get(key);
-    if (!cur || g.priority > cur.priority || (g.priority === cur.priority && g.url.length > cur.url.length)) {
-      byName.set(key, g);
-    }
-  }
-  return Array.from(byName.values()).sort((a, b) => a.name.localeCompare(b.name));
+    .filter(Boolean)
+    .sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function gameCard(game) {
-  const thumb = game.thumbnail
-    ? `<img class="thumb" src="${game.thumbnail}" alt="${game.name}" loading="lazy" referrerpolicy="no-referrer" />`
-    : "";
-
   return `
     <article class="card">
-      ${thumb}
       <h3>${game.name}</h3>
       <p>${game.category} • ${game.description}</p>
       <a class="play-link" href="/g/${game.slug}">Play</a>
@@ -125,6 +62,7 @@ function gameCard(game) {
 function renderCategories() {
   const categories = ["All", ...new Set(games.map(g => g.category))].sort((a, b) => a.localeCompare(b));
   categoriesEl.innerHTML = "";
+
   categories.forEach(cat => {
     const chip = document.createElement("button");
     chip.className = `chip ${cat === activeCategory ? "active" : ""}`;
@@ -155,31 +93,19 @@ function renderFeatured() {
 function renderGrid() {
   const list = filteredGames();
   if (!list.length) {
-    grid.innerHTML = `<p class="note">No games found.</p>`;
+    grid.innerHTML = `<p class="note">No HTML5 games found.</p>`;
     return;
   }
   grid.innerHTML = list.map(gameCard).join("");
 }
 
-async function loadJsonSource(source) {
-  const res = await fetch(source.url, { cache: "no-store" });
-  const data = await res.json();
-  const arr = Array.isArray(data) ? data : (Array.isArray(data.games) ? data.games : []);
-  return arr.map((item, idx) => normalizeJsonItem(item, source, idx));
-}
-
 async function loadGames() {
   try {
     await loadScript(MONKEY_CONFIG_JS);
-    const monkeyGames = fromMonkeyConfig();
-
-    const settled = await Promise.allSettled(JSON_SOURCES.map(loadJsonSource));
-    const jsonGames = settled.filter(r => r.status === "fulfilled").flatMap(r => r.value);
-
-    games = dedupeMerge([...monkeyGames, ...jsonGames]);
-    if (!games.length) throw new Error("No games loaded");
-  } catch (err) {
-    grid.innerHTML = `<p class="note">Could not load game catalogs.</p>`;
+    games = fromMonkeyConfig();
+    if (!games.length) throw new Error("No HTML5 games found");
+  } catch {
+    grid.innerHTML = `<p class="note">Could not load HTML5 game catalog.</p>`;
     featuredGrid.innerHTML = "";
     return;
   }
