@@ -1,0 +1,14 @@
+# Keep very large imported game assets out of git history.
+assets/allgames/*
+
+# Keep original small scaffolds tracked.
+!assets/allgames/game-01/
+!assets/allgames/game-02/
+!assets/allgames/game-03/
+!assets/allgames/game-04/
+!assets/allgames/game-05/
+!assets/allgames/game-06/
+!assets/allgames/game-07/
+!assets/allgames/game-08/
+!assets/allgames/game-09/
+!assets/allgames/game-10/

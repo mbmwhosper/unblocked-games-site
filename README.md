@@ -1,27 +1,52 @@
-# Skeezers Games — Complete Redo
+# Skeezers Games — Full Local Merge Mode
 
-Fresh rebuild focused on reliability and easy scaling.
+This build is now merged with MonkeyGG2 HTML5 game files locally.
 
-## Architecture
-- Home page: `index.html`
-- Player page: `/g/<slug>` via `g/index.html`
-- Local catalog: `games.local.json`
-- Local game files: `assets/allgames/<slug>/index.html`
+## Current state
+- Imported HTML5 games: **115**
+- Local assets path: `assets/allgames/`
+- Catalog path: `games.local.json`
+- Approx game asset size: **~3.4 GB**
 
-## Add a game
-1. Put game files in `assets/allgames/<slug>/`
-2. Add catalog entry in `games.local.json`:
+## Re-run import
 
-```json
-{
-  "slug": "my-game",
-  "name": "My Game",
-  "category": "Arcade",
-  "description": "Self-hosted HTML5 game",
-  "url": "/assets/allgames/my-game/index.html",
-  "featured": true
+```bash
+node tools/import-monkey-local.mjs
+```
+
+## Why not push all game files to GitHub?
+Large binary files and repo size limits make GitHub/Netlify unreliable for this full library.
+
+## Recommended deploy (VPS)
+
+1. Prepare a Linux VPS with Nginx.
+2. Copy site files:
+
+```bash
+rsync -avz --progress /home/c/.openclaw/workspace/unblocked-games-site/ user@YOUR_VPS:/var/www/skeezers/
+```
+
+3. Nginx site config:
+
+```nginx
+server {
+  listen 80;
+  server_name skeezers.org www.skeezers.org;
+  root /var/www/skeezers;
+  index index.html;
+
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+
+  location /g/ {
+    try_files $uri /g/index.html;
+  }
 }
 ```
 
-## Deploy
-Push to `main` and let Netlify auto-deploy.
+4. Enable HTTPS with Certbot.
+
+## Notes
+- In-window reliability is best when assets are served from your own domain.
+- Some games may still need per-title fixes depending on their original packaging.

@@ -1,12 +1,1037 @@
 [
-  {"slug":"game-01","name":"Game 01","category":"Arcade","description":"Drop files into /assets/allgames/game-01/","thumbnail":"","url":"/assets/allgames/game-01/index.html","featured":true},
-  {"slug":"game-02","name":"Game 02","category":"Arcade","description":"Drop files into /assets/allgames/game-02/","thumbnail":"","url":"/assets/allgames/game-02/index.html","featured":true},
-  {"slug":"game-03","name":"Game 03","category":"Puzzle","description":"Drop files into /assets/allgames/game-03/","thumbnail":"","url":"/assets/allgames/game-03/index.html","featured":true},
-  {"slug":"game-04","name":"Game 04","category":"Puzzle","description":"Drop files into /assets/allgames/game-04/","thumbnail":"","url":"/assets/allgames/game-04/index.html","featured":true},
-  {"slug":"game-05","name":"Game 05","category":"Racing","description":"Drop files into /assets/allgames/game-05/","thumbnail":"","url":"/assets/allgames/game-05/index.html","featured":false},
-  {"slug":"game-06","name":"Game 06","category":"Racing","description":"Drop files into /assets/allgames/game-06/","thumbnail":"","url":"/assets/allgames/game-06/index.html","featured":false},
-  {"slug":"game-07","name":"Game 07","category":"Action","description":"Drop files into /assets/allgames/game-07/","thumbnail":"","url":"/assets/allgames/game-07/index.html","featured":false},
-  {"slug":"game-08","name":"Game 08","category":"Action","description":"Drop files into /assets/allgames/game-08/","thumbnail":"","url":"/assets/allgames/game-08/index.html","featured":false},
-  {"slug":"game-09","name":"Game 09","category":"Sports","description":"Drop files into /assets/allgames/game-09/","thumbnail":"","url":"/assets/allgames/game-09/index.html","featured":false},
-  {"slug":"game-10","name":"Game 10","category":"Idle","description":"Drop files into /assets/allgames/game-10/","thumbnail":"","url":"/assets/allgames/game-10/index.html","featured":false}
+  {
+    "slug": "10-minutes-till-dawn",
+    "name": "10 minutes till dawn",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/10-minutes-till-dawn/index.html",
+    "featured": true
+  },
+  {
+    "slug": "1v1-lol",
+    "name": "1v1.LOL",
+    "category": "online",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/1v1-lol/index.html",
+    "featured": true
+  },
+  {
+    "slug": "2048",
+    "name": "2048",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/2048/index.html",
+    "featured": true
+  },
+  {
+    "slug": "a-dark-room",
+    "name": "A Dark Room",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/a-dark-room/index.html",
+    "featured": true
+  },
+  {
+    "slug": "abandoned",
+    "name": "Abandoned",
+    "category": "escape",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/abandoned/index.html",
+    "featured": true
+  },
+  {
+    "slug": "abandoned-2",
+    "name": "Abandoned 2",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/abandoned-2/index.html",
+    "featured": true
+  },
+  {
+    "slug": "ages-of-conflict",
+    "name": "Ages of Conflict",
+    "category": "escape",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/ages-of-conflict/index.html",
+    "featured": true
+  },
+  {
+    "slug": "aground",
+    "name": "Aground",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/aground/index.html",
+    "featured": true
+  },
+  {
+    "slug": "amidst-the-sky",
+    "name": "Amidst The Sky",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/amidst-the-sky/index.html",
+    "featured": true
+  },
+  {
+    "slug": "another-gentlemans-adventure",
+    "name": "Another Gentlemans Adventure",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/another-gentlemans-adventure/index.html",
+    "featured": true
+  },
+  {
+    "slug": "awesome-tanks",
+    "name": "Awesome Tanks",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/awesome-tanks/index.html",
+    "featured": true
+  },
+  {
+    "slug": "awesome-tanks-2",
+    "name": "Awesome Tanks 2",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/awesome-tanks-2/index.html",
+    "featured": true
+  },
+  {
+    "slug": "babel-tower",
+    "name": "Babel Tower",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/babel-tower/index.html",
+    "featured": true
+  },
+  {
+    "slug": "basket-random",
+    "name": "Basket Random",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/basket-random/index.html",
+    "featured": true
+  },
+  {
+    "slug": "basketball-stars",
+    "name": "Basketball Stars",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/basketball-stars/index.html",
+    "featured": true
+  },
+  {
+    "slug": "bit-life",
+    "name": "Bit Life",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/bit-life/index.html",
+    "featured": true
+  },
+  {
+    "slug": "boxing-random",
+    "name": "Boxing Random",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/boxing-random/index.html",
+    "featured": false
+  },
+  {
+    "slug": "brawl-stars-project-laser",
+    "name": "Brawl Stars Project Laser",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/brawl-stars-project-laser/index.html",
+    "featured": false
+  },
+  {
+    "slug": "breaklock",
+    "name": "Breaklock",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/breaklock/index.html",
+    "featured": false
+  },
+  {
+    "slug": "chrome-dino",
+    "name": "Chrome Dino",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/chrome-dino/index.html",
+    "featured": false
+  },
+  {
+    "slug": "clicker-heroes",
+    "name": "Clicker Heroes",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/clicker-heroes/index.html",
+    "featured": false
+  },
+  {
+    "slug": "clicker-heroes-updated",
+    "name": "Clicker Heroes Updated",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/clicker-heroes-updated/index.html",
+    "featured": false
+  },
+  {
+    "slug": "conway-s-game-of-life",
+    "name": "Conway's Game of Life",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/conway-s-game-of-life/index.html",
+    "featured": false
+  },
+  {
+    "slug": "cookie-clicker",
+    "name": "Cookie Clicker",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/cookie-clicker/index.html",
+    "featured": false
+  },
+  {
+    "slug": "core-ball",
+    "name": "Core Ball",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/core-ball/index.html",
+    "featured": false
+  },
+  {
+    "slug": "crossy-road",
+    "name": "Crossy Road",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/crossy-road/index.html",
+    "featured": false
+  },
+  {
+    "slug": "cut-the-rope",
+    "name": "Cut The Rope",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/cut-the-rope/index.html",
+    "featured": false
+  },
+  {
+    "slug": "doge-miner",
+    "name": "Doge Miner",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/doge-miner/index.html",
+    "featured": false
+  },
+  {
+    "slug": "doodle-jump",
+    "name": "Doodle Jump",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/doodle-jump/index.html",
+    "featured": false
+  },
+  {
+    "slug": "drift-boss",
+    "name": "Drift Boss",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/drift-boss/index.html",
+    "featured": false
+  },
+  {
+    "slug": "drive-mad",
+    "name": "Drive Mad",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/drive-mad/index.html",
+    "featured": false
+  },
+  {
+    "slug": "drive-mad-s",
+    "name": "Drive Mad S",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/drive-mad-s/index.html",
+    "featured": false
+  },
+  {
+    "slug": "duck-life-4",
+    "name": "Duck Life 4",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/duck-life-4/index.html",
+    "featured": false
+  },
+  {
+    "slug": "dune",
+    "name": "Dune!",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/dune/index.html",
+    "featured": false
+  },
+  {
+    "slug": "eaglercraft-ampler-launcher",
+    "name": "Eaglercraft Ampler Launcher",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/eaglercraft-ampler-launcher/index.html",
+    "featured": false
+  },
+  {
+    "slug": "eggy-car",
+    "name": "Eggy Car",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/eggy-car/index.html",
+    "featured": false
+  },
+  {
+    "slug": "evowars",
+    "name": "EvoWars",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/evowars/index.html",
+    "featured": false
+  },
+  {
+    "slug": "family-feud",
+    "name": "Family Feud",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/family-feud/index.html",
+    "featured": false
+  },
+  {
+    "slug": "fireboy-and-watergirl-in-the-crystal-temple",
+    "name": "Fireboy and Watergirl in the Crystal Temple",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/fireboy-and-watergirl-in-the-crystal-temple/index.html",
+    "featured": false
+  },
+  {
+    "slug": "fireboy-and-watergirl-in-the-forest-temple",
+    "name": "Fireboy and Watergirl in the Forest Temple",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/fireboy-and-watergirl-in-the-forest-temple/index.html",
+    "featured": false
+  },
+  {
+    "slug": "fireboy-and-watergirl-in-the-ice-temple",
+    "name": "Fireboy and Watergirl in the Ice Temple",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/fireboy-and-watergirl-in-the-ice-temple/index.html",
+    "featured": false
+  },
+  {
+    "slug": "fireboy-and-watergirl-in-the-light-temple",
+    "name": "Fireboy and Watergirl in the Light Temple",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/fireboy-and-watergirl-in-the-light-temple/index.html",
+    "featured": false
+  },
+  {
+    "slug": "five-nights-at-epstein-s",
+    "name": "Five Nights at Epstein's",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/five-nights-at-epstein-s/index.html",
+    "featured": false
+  },
+  {
+    "slug": "flappy-bird",
+    "name": "Flappy Bird",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/flappy-bird/index.html",
+    "featured": false
+  },
+  {
+    "slug": "friday-night-funkin",
+    "name": "Friday Night Funkin",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/friday-night-funkin/index.html",
+    "featured": false
+  },
+  {
+    "slug": "geometry-dash-lite",
+    "name": "Geometry Dash Lite",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/geometry-dash-lite/index.html",
+    "featured": false
+  },
+  {
+    "slug": "geometry-dash-remastered",
+    "name": "Geometry Dash Remastered",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/geometry-dash-remastered/index.html",
+    "featured": false
+  },
+  {
+    "slug": "geometry-vibes",
+    "name": "Geometry Vibes",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/geometry-vibes/index.html",
+    "featured": false
+  },
+  {
+    "slug": "geometry-vibes-monster",
+    "name": "Geometry Vibes Monster",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/geometry-vibes-monster/index.html",
+    "featured": false
+  },
+  {
+    "slug": "geometry-vibes-x-ball",
+    "name": "Geometry Vibes X-Ball",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/geometry-vibes-x-ball/index.html",
+    "featured": false
+  },
+  {
+    "slug": "getaway-shootout",
+    "name": "Getaway Shootout",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/getaway-shootout/index.html",
+    "featured": false
+  },
+  {
+    "slug": "gons-io",
+    "name": "Gons io",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/gons-io/index.html",
+    "featured": false
+  },
+  {
+    "slug": "gun-spin",
+    "name": "Gun Spin",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/gun-spin/index.html",
+    "featured": false
+  },
+  {
+    "slug": "hextris",
+    "name": "Hextris",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/hextris/index.html",
+    "featured": false
+  },
+  {
+    "slug": "idle-breakout",
+    "name": "Idle Breakout",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/idle-breakout/index.html",
+    "featured": false
+  },
+  {
+    "slug": "incremancer",
+    "name": "Incremancer",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/incremancer/index.html",
+    "featured": false
+  },
+  {
+    "slug": "lion-solider-s-vengeance",
+    "name": "Lion Solider's Vengeance",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/lion-solider-s-vengeance/index.html",
+    "featured": false
+  },
+  {
+    "slug": "maptroid",
+    "name": "Maptroid",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/maptroid/index.html",
+    "featured": false
+  },
+  {
+    "slug": "mario",
+    "name": "Mario",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/mario/index.html",
+    "featured": false
+  },
+  {
+    "slug": "monkey-mart",
+    "name": "Monkey Mart",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/monkey-mart/index.html",
+    "featured": false
+  },
+  {
+    "slug": "motox3m",
+    "name": "MotoX3M",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/motox3m/index.html",
+    "featured": false
+  },
+  {
+    "slug": "n-step-steve-part-1",
+    "name": "N Step Steve Part 1",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/n-step-steve-part-1/index.html",
+    "featured": false
+  },
+  {
+    "slug": "n-step-steve-part-2",
+    "name": "N Step Steve Part 2",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/n-step-steve-part-2/index.html",
+    "featured": false
+  },
+  {
+    "slug": "n-gon",
+    "name": "N-gon",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/n-gon/index.html",
+    "featured": false
+  },
+  {
+    "slug": "ovo",
+    "name": "OvO",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/ovo/index.html",
+    "featured": false
+  },
+  {
+    "slug": "ovo-2",
+    "name": "OvO 2",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/ovo-2/index.html",
+    "featured": false
+  },
+  {
+    "slug": "p-craft",
+    "name": "P.craft",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/p-craft/index.html",
+    "featured": false
+  },
+  {
+    "slug": "particle-clicker",
+    "name": "Particle Clicker",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/particle-clicker/index.html",
+    "featured": false
+  },
+  {
+    "slug": "planet-life",
+    "name": "Planet Life",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/planet-life/index.html",
+    "featured": false
+  },
+  {
+    "slug": "progress-knight-quest",
+    "name": "Progress Knight Quest",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/progress-knight-quest/index.html",
+    "featured": false
+  },
+  {
+    "slug": "progress-knight-reborn",
+    "name": "Progress Knight Reborn",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/progress-knight-reborn/index.html",
+    "featured": false
+  },
+  {
+    "slug": "pull-of-war",
+    "name": "Pull Of War",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/pull-of-war/index.html",
+    "featured": false
+  },
+  {
+    "slug": "reach-the-core",
+    "name": "Reach The Core",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/reach-the-core/index.html",
+    "featured": false
+  },
+  {
+    "slug": "restless-wing-syndrome",
+    "name": "Restless Wing Syndrome",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/restless-wing-syndrome/index.html",
+    "featured": false
+  },
+  {
+    "slug": "retro-bowl",
+    "name": "Retro Bowl",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/retro-bowl/index.html",
+    "featured": false
+  },
+  {
+    "slug": "retro-bowl-old",
+    "name": "Retro Bowl Old",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/retro-bowl-old/index.html",
+    "featured": false
+  },
+  {
+    "slug": "rift-shift",
+    "name": "Rift Shift",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/rift-shift/index.html",
+    "featured": false
+  },
+  {
+    "slug": "rocket-league-2d",
+    "name": "Rocket League 2D",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/rocket-league-2d/index.html",
+    "featured": false
+  },
+  {
+    "slug": "rooftop-snipers",
+    "name": "Rooftop Snipers",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/rooftop-snipers/index.html",
+    "featured": false
+  },
+  {
+    "slug": "rookie-bowman",
+    "name": "Rookie Bowman",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/rookie-bowman/index.html",
+    "featured": false
+  },
+  {
+    "slug": "run-3",
+    "name": "Run 3",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/run-3/index.html",
+    "featured": false
+  },
+  {
+    "slug": "run-3-beta-may-not-work",
+    "name": "Run 3 Beta (may not work)",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/run-3-beta-may-not-work/index.html",
+    "featured": false
+  },
+  {
+    "slug": "sabercut",
+    "name": "Sabercut",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/sabercut/index.html",
+    "featured": false
+  },
+  {
+    "slug": "sandspiel",
+    "name": "Sandspiel",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/sandspiel/index.html",
+    "featured": false
+  },
+  {
+    "slug": "scuba-bear",
+    "name": "Scuba Bear",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/scuba-bear/index.html",
+    "featured": false
+  },
+  {
+    "slug": "shadow-fight",
+    "name": "Shadow Fight",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/shadow-fight/index.html",
+    "featured": false
+  },
+  {
+    "slug": "slice-master",
+    "name": "Slice Master",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/slice-master/index.html",
+    "featured": false
+  },
+  {
+    "slug": "slope",
+    "name": "Slope",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/slope/index.html",
+    "featured": false
+  },
+  {
+    "slug": "smash-karts",
+    "name": "Smash Karts",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/smash-karts/index.html",
+    "featured": false
+  },
+  {
+    "slug": "soccer-random",
+    "name": "Soccer Random",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/soccer-random/index.html",
+    "featured": false
+  },
+  {
+    "slug": "station-saturn",
+    "name": "Station Saturn",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/station-saturn/index.html",
+    "featured": false
+  },
+  {
+    "slug": "stickman-hook",
+    "name": "Stickman Hook",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/stickman-hook/index.html",
+    "featured": false
+  },
+  {
+    "slug": "subway-surfers",
+    "name": "Subway Surfers",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/subway-surfers/index.html",
+    "featured": false
+  },
+  {
+    "slug": "subway-surfers-new-york",
+    "name": "Subway Surfers New York",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/subway-surfers-new-york/index.html",
+    "featured": false
+  },
+  {
+    "slug": "tanuki-sunset",
+    "name": "Tanuki Sunset",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/tanuki-sunset/index.html",
+    "featured": false
+  },
+  {
+    "slug": "temple-run-2",
+    "name": "Temple Run 2",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/temple-run-2/index.html",
+    "featured": false
+  },
+  {
+    "slug": "the-final-earth",
+    "name": "The Final Earth",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/the-final-earth/index.html",
+    "featured": false
+  },
+  {
+    "slug": "the-treasure",
+    "name": "The Treasure",
+    "category": "escape",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/the-treasure/index.html",
+    "featured": false
+  },
+  {
+    "slug": "there-is-no-game",
+    "name": "There Is No Game",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/there-is-no-game/index.html",
+    "featured": false
+  },
+  {
+    "slug": "tic-tac-what",
+    "name": "Tic Tac What?",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/tic-tac-what/index.html",
+    "featured": false
+  },
+  {
+    "slug": "time-shooter",
+    "name": "Time Shooter",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/time-shooter/index.html",
+    "featured": false
+  },
+  {
+    "slug": "time-shooter-3",
+    "name": "Time Shooter 3",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/time-shooter-3/index.html",
+    "featured": false
+  },
+  {
+    "slug": "tiny-fishing",
+    "name": "Tiny Fishing",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/tiny-fishing/index.html",
+    "featured": false
+  },
+  {
+    "slug": "trace",
+    "name": "Trace",
+    "category": "escape",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/trace/index.html",
+    "featured": false
+  },
+  {
+    "slug": "tunnel-rush",
+    "name": "Tunnel Rush",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/tunnel-rush/index.html",
+    "featured": false
+  },
+  {
+    "slug": "two-ball-3d",
+    "name": "Two Ball 3d",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/two-ball-3d/index.html",
+    "featured": false
+  },
+  {
+    "slug": "vex-3",
+    "name": "Vex 3",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/vex-3/index.html",
+    "featured": false
+  },
+  {
+    "slug": "vex-4",
+    "name": "Vex 4",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/vex-4/index.html",
+    "featured": false
+  },
+  {
+    "slug": "vex-5",
+    "name": "Vex 5",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/vex-5/index.html",
+    "featured": false
+  },
+  {
+    "slug": "vex-6",
+    "name": "Vex 6",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/vex-6/index.html",
+    "featured": false
+  },
+  {
+    "slug": "vex-7",
+    "name": "Vex 7",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/vex-7/index.html",
+    "featured": false
+  },
+  {
+    "slug": "volley-random",
+    "name": "Volley Random",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/volley-random/index.html",
+    "featured": false
+  },
+  {
+    "slug": "web-osu",
+    "name": "Web OSU",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/web-osu/index.html",
+    "featured": false
+  },
+  {
+    "slug": "x-trench-run",
+    "name": "X Trench Run",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/x-trench-run/index.html",
+    "featured": false
+  },
+  {
+    "slug": "yohoho",
+    "name": "Yohoho",
+    "category": "Games",
+    "description": "Imported HTML5 game",
+    "thumbnail": "",
+    "url": "/assets/allgames/yohoho/index.html",
+    "featured": false
+  }
 ]
