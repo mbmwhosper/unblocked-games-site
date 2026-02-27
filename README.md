@@ -1,31 +1,27 @@
-# PlayPortal (Self-hosted local mode)
+# Skeezers Games — Complete Redo
 
-I switched the site to run fully from local game files so in-window play is reliable.
+Fresh rebuild focused on reliability and easy scaling.
 
-## What was set up
+## Architecture
+- Home page: `index.html`
+- Player page: `/g/<slug>` via `g/index.html`
+- Local catalog: `games.local.json`
+- Local game files: `assets/allgames/<slug>/index.html`
 
-- Local catalog file: `games.local.json`
-- 10 scaffolded game slots:
-  - `/assets/allgames/game-01/` ... `/assets/allgames/game-10/`
-- Each slot has a placeholder `index.html`
-
-## To add a real game
-
-1. Replace placeholder files inside a slot folder with the real HTML5 game build.
-2. Keep an entry in `games.local.json` like:
+## Add a game
+1. Put game files in `assets/allgames/<slug>/`
+2. Add catalog entry in `games.local.json`:
 
 ```json
 {
-  "slug": "game-01",
+  "slug": "my-game",
   "name": "My Game",
   "category": "Arcade",
-  "description": "My self-hosted game",
-  "thumbnail": "/assets/allgames/game-01/thumb.png",
-  "url": "/assets/allgames/game-01/index.html",
+  "description": "Self-hosted HTML5 game",
+  "url": "/assets/allgames/my-game/index.html",
   "featured": true
 }
 ```
 
 ## Deploy
-
-Push to `main`; Netlify auto-deploys.
+Push to `main` and let Netlify auto-deploy.

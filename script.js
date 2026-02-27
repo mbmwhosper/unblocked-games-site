@@ -1,102 +1,76 @@
-const LOCAL_GAMES_JSON = "/games.local.json";
+const CATALOG_URL = "/games.local.json";
 
 let games = [];
-let activeCategory = "All";
+let category = "All";
 
-const grid = document.getElementById("gameGrid");
-const featuredGrid = document.getElementById("featuredGrid");
+const featuredEl = document.getElementById("featured");
+const gamesEl = document.getElementById("games");
 const categoriesEl = document.getElementById("categories");
 const searchEl = document.getElementById("search");
 
-function slugify(s = "") {
-  return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-}
+const slugify = s => (s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
-function normalize(item, idx) {
-  const name = item.name || `Game ${idx + 1}`;
+function normalize(item, i) {
+  const name = item.name || `Game ${i + 1}`;
   return {
     slug: item.slug || slugify(name),
     name,
     category: item.category || "Games",
-    featured: Boolean(item.featured) || idx < 8,
-    description: item.description || "Self-hosted HTML5 game.",
+    description: item.description || "Play in your browser",
     url: item.url || "",
-    thumbnail: item.thumbnail || ""
+    featured: Boolean(item.featured) || i < 8
   };
 }
 
-function gameCard(game) {
-  const thumb = game.thumbnail
-    ? `<img class="thumb" src="${game.thumbnail}" alt="${game.name}" loading="lazy" />`
-    : "";
-
-  return `
-    <article class="card">
-      ${thumb}
-      <h3>${game.name}</h3>
-      <p>${game.category} • ${game.description}</p>
-      <a class="play-link" href="/g/${game.slug}">Play</a>
-    </article>
-  `;
+function card(g) {
+  return `<article class="card"><h3>${g.name}</h3><p>${g.category} • ${g.description}</p><a class="play" href="/g/${g.slug}">Play</a></article>`;
 }
 
 function renderCategories() {
-  const categories = ["All", ...new Set(games.map(g => g.category))].sort((a, b) => a.localeCompare(b));
+  const cats = ["All", ...new Set(games.map(g => g.category))].sort((a,b)=>a.localeCompare(b));
   categoriesEl.innerHTML = "";
-
-  categories.forEach(cat => {
-    const chip = document.createElement("button");
-    chip.className = `chip ${cat === activeCategory ? "active" : ""}`;
-    chip.textContent = cat;
-    chip.addEventListener("click", () => {
-      activeCategory = cat;
-      renderCategories();
-      renderGrid();
-    });
-    categoriesEl.appendChild(chip);
+  cats.forEach(c => {
+    const b = document.createElement("button");
+    b.className = `chip ${c === category ? "on" : ""}`;
+    b.textContent = c;
+    b.onclick = () => { category = c; renderCategories(); renderGames(); };
+    categoriesEl.appendChild(b);
   });
 }
 
-function filteredGames() {
+function filtered() {
   const q = searchEl.value.trim().toLowerCase();
   return games.filter(g => {
-    const categoryPass = activeCategory === "All" || g.category === activeCategory;
-    const searchPass = !q || `${g.name} ${g.description} ${g.category}`.toLowerCase().includes(q);
-    return categoryPass && searchPass;
+    const cOk = category === "All" || g.category === category;
+    const qOk = !q || `${g.name} ${g.description} ${g.category}`.toLowerCase().includes(q);
+    return cOk && qOk;
   });
+}
+
+function renderGames() {
+  const list = filtered();
+  gamesEl.innerHTML = list.length ? list.map(card).join("") : `<p class="hero"><span>No games matched.</span></p>`;
 }
 
 function renderFeatured() {
-  const featured = games.filter(g => g.featured).slice(0, 12);
-  featuredGrid.innerHTML = featured.map(gameCard).join("");
+  featuredEl.innerHTML = games.filter(g => g.featured).slice(0, 12).map(card).join("");
 }
 
-function renderGrid() {
-  const list = filteredGames();
-  if (!list.length) {
-    grid.innerHTML = `<p class="note">No local games configured yet.</p>`;
-    return;
-  }
-  grid.innerHTML = list.map(gameCard).join("");
-}
-
-async function loadGames() {
+async function init() {
   try {
-    const res = await fetch(LOCAL_GAMES_JSON, { cache: "no-store" });
+    const res = await fetch(CATALOG_URL, { cache: "no-store" });
     const data = await res.json();
-    const arr = Array.isArray(data) ? data : [];
-    games = arr.map(normalize).filter(g => /^\/assets\/allgames\//.test(g.url));
-    if (!games.length) throw new Error("No local games found");
+    games = (Array.isArray(data) ? data : []).map(normalize).filter(g => g.url.startsWith("/"));
+    if (!games.length) throw new Error("empty");
   } catch {
-    grid.innerHTML = `<p class="note">Could not load local catalog. Edit /games.local.json.</p>`;
-    featuredGrid.innerHTML = "";
+    featuredEl.innerHTML = "";
+    gamesEl.innerHTML = `<p class="hero"><span>Catalog unavailable. Check /games.local.json.</span></p>`;
     return;
   }
-
   renderFeatured();
   renderCategories();
-  renderGrid();
+  renderGames();
 }
 
-searchEl.addEventListener("input", renderGrid);
-loadGames();
+searchEl.addEventListener("input", renderGames);
+init();
