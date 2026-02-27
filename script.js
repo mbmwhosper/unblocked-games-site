@@ -60,7 +60,7 @@ async function init() {
   try {
     const res = await fetch(CATALOG_URL, { cache: "no-store" });
     const data = await res.json();
-    games = (Array.isArray(data) ? data : []).map(normalize).filter(g => g.url.startsWith("/"));
+    games = (Array.isArray(data) ? data : []).map(normalize).filter(g => g.url.startsWith("/") || /^https?:\/\//.test(g.url));
     if (!games.length) throw new Error("empty");
   } catch {
     featuredEl.innerHTML = "";

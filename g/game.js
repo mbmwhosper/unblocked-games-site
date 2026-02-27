@@ -24,7 +24,7 @@ async function init() {
   try {
     const res = await fetch(CATALOG_URL, { cache: "no-store" });
     const data = await res.json();
-    const list = (Array.isArray(data) ? data : []).map(normalize).filter(g => g.url.startsWith("/"));
+    const list = (Array.isArray(data) ? data : []).map(normalize).filter(g => g.url.startsWith("/") || /^https?:\/\//.test(g.url));
     const game = list.find(g => g.slug === slugFromPath());
     if (!game) {
       titleEl.textContent = "Game not found";

@@ -1,67 +1,55 @@
-# Skeezers Games — Full Local Merge Mode
+# Skeezers Games — Complete Redo
 
-This build is now merged with MonkeyGG2 HTML5 game files locally.
+Fresh rebuild focused on reliability and easy scaling.
 
-## Current state
-- Imported HTML5 games: **115**
-- Local assets path: `assets/allgames/`
-- Catalog path: `games.local.json`
-- Approx game asset size: **~3.4 GB**
+## Architecture
+- Home page: `index.html`
+- Player page: `/g/<slug>` via `g/index.html`
+- Catalog: `games.local.json`
+- Game files: `assets/allgames/<slug>/...`
 
-## Re-run import
+## Add a game
+1. Put game files in `assets/allgames/<slug>/`
+2. Add catalog entry in `games.local.json`.
+
+## Cheapest scale setup (Netlify + Cloudflare R2)
+
+### 1) Create R2 bucket
+- Cloudflare Dashboard → R2 → Create bucket
+- Name example: `skeezers-games`
+
+### 2) Bind custom domain to bucket
+- R2 bucket → Settings → Custom Domains
+- Add: `games.skeezers.org`
+
+### 3) DNS in IONOS
+- Add `CNAME`:
+  - Host: `games`
+  - Value: target shown by Cloudflare for your R2 custom domain
+
+### 4) Upload assets to R2
+Use AWS CLI (S3-compatible):
 
 ```bash
-node tools/import-monkey-local.mjs
+aws configure --profile r2
+# Access key = R2 API token key
+# Secret = R2 API token secret
+# region = auto
+
+aws s3 sync ./assets/allgames s3://skeezers-games/assets/allgames \
+  --endpoint-url https://<ACCOUNT_ID>.r2.cloudflarestorage.com \
+  --profile r2
 ```
 
-## Why not push all game files to GitHub?
-Large binary files and repo size limits make GitHub/Netlify unreliable for this full library.
-
-## Recommended deploy (VPS)
-
-1. Prepare a Linux VPS with Nginx.
-2. One-command manual deploy:
+### 5) Rewrite catalog URLs to R2 domain
 
 ```bash
-cd /home/c/.openclaw/workspace/unblocked-games-site
-VPS_USER=ubuntu VPS_HOST=YOUR_IP VPS_PATH=/var/www/skeezers ./deploy-vps.sh
+node tools/rewrite-catalog-for-r2.mjs https://games.skeezers.org
 ```
 
-3. Nginx site config:
-
-```nginx
-server {
-  listen 80;
-  server_name skeezers.org www.skeezers.org;
-  root /var/www/skeezers;
-  index index.html;
-
-  location / {
-    try_files $uri $uri/ /index.html;
-  }
-
-  location /g/ {
-    try_files $uri /g/index.html;
-  }
-}
-```
-
-4. Enable HTTPS with Certbot.
-
-## Auto-deploy on every push (near real-time)
-
-A GitHub Actions workflow is included at:
-- `.github/workflows/deploy-vps.yml`
-
-Set these GitHub repo secrets:
-- `VPS_HOST` (e.g. `1.2.3.4`)
-- `VPS_USER` (e.g. `ubuntu`)
-- `VPS_PATH` (e.g. `/var/www/skeezers`)
-- `VPS_SSH_KEY` (private deploy key content)
-- `VPS_RELOAD_CMD` (optional, e.g. `sudo systemctl reload nginx`)
-
-After secrets are set, every push to `main` auto-syncs to VPS.
+### 6) Deploy frontend (Netlify)
+Commit and push. Netlify serves app; game files stream from R2.
 
 ## Notes
-- In-window reliability is best when assets are served from your own domain.
-- Some games may still need per-title fixes depending on their original packaging.
+- App accepts both local (`/assets/...`) and remote (`https://...`) game URLs.
+- This avoids GitHub large-file limits while keeping frontend updates fast.
