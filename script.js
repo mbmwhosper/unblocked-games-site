@@ -1,4 +1,5 @@
-const LOCAL_GAMES_JSON = "/games.local.json";
+const MONKEY_CONFIG_JS = "https://cdn.jsdelivr.net/gh/MonkeyGG2/monkeygg2.github.io@main/js/config.js";
+const MONKEY_BASE = "https://monkeygg2.github.io/games/";
 
 let games = [];
 let activeCategory = "All";
@@ -12,27 +13,45 @@ function slugify(s = "") {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
-function normalize(item, idx) {
-  const name = item.name || `Game ${idx + 1}`;
-  return {
-    slug: item.slug || slugify(name),
-    name,
-    category: item.category || "Games",
-    featured: Boolean(item.featured) || idx < 8,
-    description: item.description || "Play in your browser.",
-    url: item.url || "",
-    thumbnail: item.thumbnail || ""
-  };
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const s = document.createElement("script");
+    s.src = src;
+    s.async = true;
+    s.onload = resolve;
+    s.onerror = reject;
+    document.head.appendChild(s);
+  });
+}
+
+function buildGamesFromMonkeyConfig() {
+  const cfg = window.json?.games || {};
+  const entries = Object.entries(cfg);
+
+  return entries
+    .map(([name, meta], idx) => {
+      const path = meta?.path || "";
+      const categories = Array.isArray(meta?.categories) && meta.categories.length ? meta.categories : ["Games"];
+      const isFlash = path.startsWith("flash/");
+      if (!path || isFlash) return null;
+
+      return {
+        slug: slugify(name),
+        name,
+        category: categories[0],
+        featured: idx < 12,
+        description: `Source: MonkeyGG2 HTML5 (${path})`,
+        url: `${MONKEY_BASE}${path}`,
+        thumbnail: ""
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function gameCard(game) {
-  const thumb = game.thumbnail
-    ? `<img class="thumb" src="${game.thumbnail}" alt="${game.name}" loading="lazy" />`
-    : "";
-
   return `
     <article class="card">
-      ${thumb}
       <h3>${game.name}</h3>
       <p>${game.category} • ${game.description}</p>
       <a class="play-link" href="/g/${game.slug}">Play</a>
@@ -67,14 +86,14 @@ function filteredGames() {
 }
 
 function renderFeatured() {
-  const featured = games.filter(g => g.featured).slice(0, 8);
+  const featured = games.filter(g => g.featured).slice(0, 12);
   featuredGrid.innerHTML = featured.map(gameCard).join("");
 }
 
 function renderGrid() {
   const list = filteredGames();
   if (!list.length) {
-    grid.innerHTML = `<p class="note">No local games configured yet.</p>`;
+    grid.innerHTML = `<p class="note">No games found.</p>`;
     return;
   }
   grid.innerHTML = list.map(gameCard).join("");
@@ -82,14 +101,11 @@ function renderGrid() {
 
 async function loadGames() {
   try {
-    const res = await fetch(LOCAL_GAMES_JSON, { cache: "no-store" });
-    const data = await res.json();
-    const arr = Array.isArray(data) ? data : [];
-    games = arr.map(normalize).filter(g => /^\//.test(g.url));
-
-    if (!games.length) throw new Error("No local games found");
+    await loadScript(MONKEY_CONFIG_JS);
+    games = buildGamesFromMonkeyConfig();
+    if (!games.length) throw new Error("No HTML5 games found in source config");
   } catch (err) {
-    grid.innerHTML = `<p class="note">Could not load local catalog. Add entries to /games.local.json.</p>`;
+    grid.innerHTML = `<p class="note">Could not load MonkeyGG2 game catalog.</p>`;
     featuredGrid.innerHTML = "";
     return;
   }

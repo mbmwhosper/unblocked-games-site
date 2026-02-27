@@ -1,4 +1,5 @@
-const LOCAL_GAMES_JSON = "/games.local.json";
+const MONKEY_CONFIG_JS = "https://cdn.jsdelivr.net/gh/MonkeyGG2/monkeygg2.github.io@main/js/config.js";
+const MONKEY_BASE = "https://monkeygg2.github.io/games/";
 
 function getSlugFromUrl() {
   const pathParts = window.location.pathname.split("/").filter(Boolean);
@@ -11,15 +12,37 @@ function slugify(s = "") {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
-function normalize(item, idx) {
-  const name = item.name || `Game ${idx + 1}`;
-  return {
-    slug: item.slug || slugify(name),
-    name,
-    category: item.category || "Games",
-    description: item.description || "Play in your browser.",
-    url: item.url || ""
-  };
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const s = document.createElement("script");
+    s.src = src;
+    s.async = true;
+    s.onload = resolve;
+    s.onerror = reject;
+    document.head.appendChild(s);
+  });
+}
+
+function buildGamesFromMonkeyConfig() {
+  const cfg = window.json?.games || {};
+  const entries = Object.entries(cfg);
+
+  return entries
+    .map(([name, meta]) => {
+      const path = meta?.path || "";
+      const categories = Array.isArray(meta?.categories) && meta.categories.length ? meta.categories : ["Games"];
+      const isFlash = path.startsWith("flash/");
+      if (!path || isFlash) return null;
+
+      return {
+        slug: slugify(name),
+        name,
+        category: categories[0],
+        description: `Source: MonkeyGG2 HTML5 (${path})`,
+        url: `${MONKEY_BASE}${path}`
+      };
+    })
+    .filter(Boolean);
 }
 
 const slug = getSlugFromUrl();
@@ -31,19 +54,18 @@ const fullscreenBtn = document.getElementById("fullscreenBtn");
 async function init() {
   let game = null;
   try {
-    const res = await fetch(LOCAL_GAMES_JSON, { cache: "no-store" });
-    const data = await res.json();
-    const games = (Array.isArray(data) ? data : []).map(normalize).filter(g => /^\//.test(g.url));
+    await loadScript(MONKEY_CONFIG_JS);
+    const games = buildGamesFromMonkeyConfig();
     game = games.find(g => g.slug === slug);
   } catch (e) {
     gameName.textContent = "Game catalog unavailable";
-    gameDescription.textContent = "Could not load local game list.";
+    gameDescription.textContent = "Could not load MonkeyGG2 game list.";
     return;
   }
 
   if (!game) {
     gameName.textContent = "Game not found";
-    gameDescription.textContent = "Add this game to /games.local.json and make sure files exist under /assets/allgames/<slug>/";
+    gameDescription.textContent = "Requested game slug was not found in MonkeyGG2 HTML5 catalog.";
     return;
   }
 
