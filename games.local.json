@@ -1,11 +1,12 @@
 [
-  {
-    "slug": "demo-local",
-    "name": "Demo Local Game",
-    "category": "Local",
-    "description": "Replace with your self-hosted game build.",
-    "thumbnail": "",
-    "url": "/assets/allgames/demo-local/index.html",
-    "featured": true
-  }
+  {"slug":"game-01","name":"Game 01","category":"Arcade","description":"Drop files into /assets/allgames/game-01/","thumbnail":"","url":"/assets/allgames/game-01/index.html","featured":true},
+  {"slug":"game-02","name":"Game 02","category":"Arcade","description":"Drop files into /assets/allgames/game-02/","thumbnail":"","url":"/assets/allgames/game-02/index.html","featured":true},
+  {"slug":"game-03","name":"Game 03","category":"Puzzle","description":"Drop files into /assets/allgames/game-03/","thumbnail":"","url":"/assets/allgames/game-03/index.html","featured":true},
+  {"slug":"game-04","name":"Game 04","category":"Puzzle","description":"Drop files into /assets/allgames/game-04/","thumbnail":"","url":"/assets/allgames/game-04/index.html","featured":true},
+  {"slug":"game-05","name":"Game 05","category":"Racing","description":"Drop files into /assets/allgames/game-05/","thumbnail":"","url":"/assets/allgames/game-05/index.html","featured":false},
+  {"slug":"game-06","name":"Game 06","category":"Racing","description":"Drop files into /assets/allgames/game-06/","thumbnail":"","url":"/assets/allgames/game-06/index.html","featured":false},
+  {"slug":"game-07","name":"Game 07","category":"Action","description":"Drop files into /assets/allgames/game-07/","thumbnail":"","url":"/assets/allgames/game-07/index.html","featured":false},
+  {"slug":"game-08","name":"Game 08","category":"Action","description":"Drop files into /assets/allgames/game-08/","thumbnail":"","url":"/assets/allgames/game-08/index.html","featured":false},
+  {"slug":"game-09","name":"Game 09","category":"Sports","description":"Drop files into /assets/allgames/game-09/","thumbnail":"","url":"/assets/allgames/game-09/index.html","featured":false},
+  {"slug":"game-10","name":"Game 10","category":"Idle","description":"Drop files into /assets/allgames/game-10/","thumbnail":"","url":"/assets/allgames/game-10/index.html","featured":false}
 ]

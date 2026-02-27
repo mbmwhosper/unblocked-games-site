@@ -1,17 +1,31 @@
-# PlayPortal (MonkeyGG2 HTML5 catalog mode)
+# PlayPortal (Self-hosted local mode)
 
-This build now sources games from:
-- `https://github.com/MonkeyGG2/monkeygg2.github.io`
+I switched the site to run fully from local game files so in-window play is reliable.
 
-Implementation:
-- Loads `js/config.js` from the repo via jsDelivr CDN
-- Uses all non-Flash entries from `json.games`
-- Builds in-window play routes at `/g/<slug>`
+## What was set up
 
-## Notes
-- Flash entries are filtered out automatically.
-- If a specific game fails to embed, that is controlled by source/game frame policies.
+- Local catalog file: `games.local.json`
+- 10 scaffolded game slots:
+  - `/assets/allgames/game-01/` ... `/assets/allgames/game-10/`
+- Each slot has a placeholder `index.html`
+
+## To add a real game
+
+1. Replace placeholder files inside a slot folder with the real HTML5 game build.
+2. Keep an entry in `games.local.json` like:
+
+```json
+{
+  "slug": "game-01",
+  "name": "My Game",
+  "category": "Arcade",
+  "description": "My self-hosted game",
+  "thumbnail": "/assets/allgames/game-01/thumb.png",
+  "url": "/assets/allgames/game-01/index.html",
+  "featured": true
+}
+```
 
 ## Deploy
-- Repo: `mbmwhosper/unblocked-games-site`
-- Netlify auto-deploys from `main`
+
+Push to `main`; Netlify auto-deploys.
