@@ -11,7 +11,10 @@ function gameCard(game) {
     <article class="card">
       <h3>${game.name}</h3>
       <p>${game.category} • ${game.description}</p>
-      <a class="play-link" href="/g/${game.slug}">Play</a>
+      <div class="player-controls">
+        <a class="play-link" href="${game.url}" target="_blank" rel="noopener noreferrer">Play Now</a>
+        <a class="play-link" href="/g/${game.slug}">Game Page</a>
+      </div>
     </article>
   `;
 }

@@ -16,6 +16,7 @@ const game = games.find(g => g.slug === slug);
 const gameName = document.getElementById("gameName");
 const gameDescription = document.getElementById("gameDescription");
 const frame = document.getElementById("gameFrame");
+const launchDirect = document.getElementById("launchDirect");
 const openNewTab = document.getElementById("openNewTab");
 const fullscreenBtn = document.getElementById("fullscreenBtn");
 
@@ -27,6 +28,8 @@ if (!game) {
   gameName.textContent = game.name;
   gameDescription.textContent = `${game.category} • ${game.description}`;
   frame.src = game.url;
+  launchDirect.href = game.url;
+  launchDirect.removeAttribute("aria-disabled");
   openNewTab.disabled = false;
   fullscreenBtn.disabled = false;
 }
